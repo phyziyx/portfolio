@@ -17,10 +17,10 @@ class EventsManager {
     delete this.events[name];
   }
 
-  static call(name: string, ...args: any[]): void {
+  static call(name: string, ...args: any[]): any {
     if (!this.events[name]) throw new Error(`Event "${name}" does not exist!`);
 
-    this.events[name].call(args);
+    return this.events[name].call(args);
   }
 }
 
